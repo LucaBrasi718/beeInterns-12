@@ -44,7 +44,7 @@ body {
 
 .inner {
     max-width: 1280px;
-    width: 98%;
+    width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
 }
@@ -53,7 +53,10 @@ body {
 header {
     grid-area: header;
     background-color: rgba(25,23,32,0.46);
-    position: relative;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
     z-index: 1;
 }
 
@@ -197,7 +200,7 @@ main::before {
     border-radius: 50%;
 }
 
-.slider__map .active a {
+.slider__map a.active {
     background-color: #000;
 }
 
@@ -326,7 +329,7 @@ main::before {
     margin-left: 0;
 }
 
-.colors__select ul span {
+.colors__select ul a {
     display: block;
     position: relative;
     width: 37px;
@@ -360,13 +363,28 @@ main::before {
 }
 .catalog__row {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .catalog__item {
+    width: calc((100% / 3) - (74px / 2));
     padding: 330px 80px 43px 49px;
     background-color: #F8F8F9;
+    margin-left: 37px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.catalog__item:nth-child(n + 4) {
+    margin-top: 37px;
+}
+
+.catalog__item:first-child, .catalog__item:nth-child(4n) {
+    margin-left: 0;
 }
 
 .item__title span {
